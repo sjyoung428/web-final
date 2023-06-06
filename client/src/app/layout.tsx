@@ -1,9 +1,9 @@
 import AuthProvider from "@/providers/AuthProvider";
 import "./globals.css";
-import { Inter } from "next/font/google";
+import { Open_Sans } from "next/font/google";
 import Header from "@/components/Header";
 
-const inter = Inter({ subsets: ["latin"] });
+const openSans = Open_Sans({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Create Next App",
@@ -16,8 +16,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
+    <html lang="en" className={openSans.className}>
+      <body>
         <AuthProvider>
           <Header />
           <main>{children}</main>
