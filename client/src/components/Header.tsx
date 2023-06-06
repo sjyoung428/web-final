@@ -4,16 +4,17 @@ import { signIn, signOut, useSession } from "next-auth/react";
 import React from "react";
 import Button from "./common/Button";
 import Avatar from "./common/Avatar";
+import Title from "./common/Title";
 
 const Header = () => {
   const { data: session } = useSession();
 
   return (
-    <nav className="border p-2 fixed w-full top-0 backdrop-blur-sm">
+    <nav className="border p-2 w-full top-0 backdrop-blur-sm">
       <ul className="w-full grid grid-cols-3 ">
         <div />
         <li className="flex justify-center items-center">
-          <h2 className="">채팅</h2>
+          <Title>채팅</Title>
         </li>
         <li>
           {session && (

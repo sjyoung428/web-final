@@ -17,10 +17,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={openSans.className}>
-      <body>
+      <body className="w-full h-[100vh]">
         <AuthProvider>
           <Header />
-          <main>{children}</main>
+          <main className="w-full h-[80%] mt-4 flex flex-col items-center">
+            {children}
+          </main>
         </AuthProvider>
       </body>
     </html>
