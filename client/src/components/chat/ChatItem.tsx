@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import Avatar from "../common/Avatar";
-import { DefaultSession } from "next-auth";
+import type { DefaultSession } from "next-auth";
 import { useSession } from "next-auth/react";
 import { cls } from "@/utils/cls";
 
