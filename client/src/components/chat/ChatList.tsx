@@ -8,7 +8,27 @@ const ChatList = () => {
   const { data: session } = useSession();
 
   return (
-    <ul className="p-4 overflow-y-scroll">
+    <ul className="h-full overflow-y-auto p-4 ">
+      <ChatItem
+        user={{ name: "test", email: "test@naver.com", image: undefined }}
+      >
+        상대 채팅
+      </ChatItem>
+      <ChatItem
+        user={{ name: "test", email: "test@naver.com", image: undefined }}
+      >
+        상대 채팅
+      </ChatItem>
+      <ChatItem
+        user={{ name: "test", email: "test@naver.com", image: undefined }}
+      >
+        상대 채팅
+      </ChatItem>
+      <ChatItem
+        user={{ name: "test", email: "test@naver.com", image: undefined }}
+      >
+        상대 채팅
+      </ChatItem>
       <ChatItem
         user={{ name: "test", email: "test@naver.com", image: undefined }}
       >
