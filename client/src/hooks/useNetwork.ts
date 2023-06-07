@@ -1,10 +1,10 @@
 import { useCallback, useEffect, useState } from "react";
 
-type UseNetworkCallback = () => void | Promise<void>;
-type UseNetworkOptions = {
+type UseNetworkCallback = () => void;
+interface UseNetworkOptions {
   onOnline?: UseNetworkCallback;
   onOffline?: UseNetworkCallback;
-};
+}
 
 export const useNetwork = ({ onOnline, onOffline }: UseNetworkOptions = {}) => {
   const [isOnline, setIsOnline] = useState(
