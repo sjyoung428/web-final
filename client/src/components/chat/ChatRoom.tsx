@@ -20,10 +20,12 @@ const ChatRoom = () => {
     <>
       <section className="border w-[80%] h-[80%]">
         <ul className="p-4 overflow-y-scroll">
-          <ChatItem>상대 채팅</ChatItem>
-          <ChatItem me image={session?.user?.image}>
-            내 채팅
+          <ChatItem
+            user={{ name: "test", email: "test@naver.com", image: undefined }}
+          >
+            상대 채팅
           </ChatItem>
+          <ChatItem user={session?.user}>내 채팅</ChatItem>
         </ul>
       </section>
       {session && session.user && <ChatForm />}
