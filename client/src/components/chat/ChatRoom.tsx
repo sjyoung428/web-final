@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import Avatar from "./common/Avatar";
+import Avatar from "../common/Avatar";
 import { useSession } from "next-auth/react";
 import ChatForm from "./ChatForm";
 
