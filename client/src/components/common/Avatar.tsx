@@ -15,8 +15,8 @@ const Avatar = ({ image, size = "lg" }: AvatarProps) => {
         <Image
           className="rounded-full"
           src={image}
-          width={45}
-          height={45}
+          width={size === "lg" ? 45 : 35}
+          height={size === "lg" ? 45 : 35}
           alt="avatar"
           referrerPolicy="no-referrer"
           priority

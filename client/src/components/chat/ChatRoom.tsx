@@ -22,7 +22,7 @@ const ChatRoom = () => {
 
           <li className="flex justify-end items-center gap-2">
             <span>내 채팅</span>
-            <Avatar size="sm" />
+            <Avatar size="sm" image={session?.user?.image} />
           </li>
         </ul>
       </section>
