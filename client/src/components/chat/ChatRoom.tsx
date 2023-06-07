@@ -26,7 +26,7 @@ const ChatRoom = () => {
           </li>
         </ul>
       </section>
-      <ChatForm />
+      {session && session.user && <ChatForm />}
     </>
   );
 };
