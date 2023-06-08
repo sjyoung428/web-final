@@ -1,17 +1,19 @@
+import { User } from "@/hooks/useUser";
 import { io } from "socket.io-client";
 import { create } from "zustand";
 
-const socket = io("http://localhost:8080");
+export const socket = io("http://localhost:8080");
 
 interface Message {
+  id: string;
   message: string;
-  user: string;
+  user: User;
 }
 
 interface ChatStore {
   messages: Message[];
-  sendMessage: (message: string, user: string) => void;
-  addMessage: (message: string, user: string) => void;
+  sendMessage: (message: string, user: User) => void;
+  addMessage: (message: string, user: User) => void;
 }
 
 const useChatStore = create<ChatStore>((set) => ({
@@ -22,11 +24,14 @@ const useChatStore = create<ChatStore>((set) => ({
 
   addMessage: (message, user) =>
     set((state) => ({
-      messages: [...state.messages, { message, user }],
+      messages: [
+        ...state.messages,
+        { message, user, id: Date.now().toString() },
+      ],
     })),
 }));
 
-socket.on("message", (message: string, user: string) => {
+socket.on("message", (message: string, user: User) => {
   useChatStore.getState().addMessage(message, user);
 });
 

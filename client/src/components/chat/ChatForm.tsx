@@ -3,17 +3,27 @@
 import { useForm } from "react-hook-form";
 import Button from "../common/Button";
 import { useSession } from "next-auth/react";
+import useChatStore, { socket } from "@/store/useChatStore";
+import { useUser } from "@/hooks/useUser";
+import { useEffect } from "react";
+
+interface ChatFormState {
+  chat: string;
+}
 
 const ChatForm = () => {
   const { data: session } = useSession();
+  const user = useUser();
+  const { sendMessage } = useChatStore();
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm();
+  } = useForm<ChatFormState>();
 
-  const onSubmit = () => {
+  const onSubmit = ({ chat }: ChatFormState) => {
+    sendMessage(chat, user);
     reset();
   };
 
