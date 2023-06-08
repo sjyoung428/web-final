@@ -13,8 +13,6 @@ const socket = (server: http.Server) => {
     console.log("a user connected");
 
     socket.on("message", (message, user) => {
-      console.log("message: ", message, "user", user);
-
       io.emit("message", message, user);
     });
 

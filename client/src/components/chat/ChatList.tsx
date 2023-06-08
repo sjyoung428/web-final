@@ -18,13 +18,11 @@ const ChatList = () => {
   return (
     <ul className="h-full overflow-y-auto p-4 ">
       {messages.map((message) => (
-        <>
-          <ChatItem key={message.id} user={message.user}>
-            {message.message}
-          </ChatItem>
-          <div ref={endRef} />
-        </>
+        <ChatItem key={message.id} user={message.user}>
+          {message.message}
+        </ChatItem>
       ))}
+      <div ref={endRef} />
     </ul>
   );
 };

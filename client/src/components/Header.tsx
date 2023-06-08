@@ -14,7 +14,11 @@ const Header = () => {
       <ul className="w-full grid grid-cols-3 ">
         <div />
         <li className="flex justify-center items-center">
-          <Title>채팅</Title>
+          <Title>
+            {session && session.user
+              ? `${session.user.name}님 환영합니다.`
+              : "로그인 후 이용해주세요."}
+          </Title>
         </li>
         <li>
           {session && (
