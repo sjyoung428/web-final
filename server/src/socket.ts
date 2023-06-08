@@ -8,6 +8,20 @@ const socket = (server: http.Server) => {
       credentials: true,
     },
   });
+
+  io.on("connection", (socket) => {
+    console.log("a user connected");
+
+    socket.on("message", (message, user) => {
+      console.log("message: ", message, "user", user);
+
+      socket.emit("message", message, user);
+    });
+
+    socket.on("disconnect", () => {
+      console.log("user disconnected");
+    });
+  });
 };
 
 export default socket;
