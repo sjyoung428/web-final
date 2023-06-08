@@ -15,7 +15,7 @@ const socket = (server: http.Server) => {
     socket.on("message", (message, user) => {
       console.log("message: ", message, "user", user);
 
-      socket.emit("message", message, user);
+      io.emit("message", message, user);
     });
 
     socket.on("disconnect", () => {

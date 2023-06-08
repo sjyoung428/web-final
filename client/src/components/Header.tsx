@@ -25,7 +25,7 @@ const Header = () => {
           )}
           {!session && (
             <div className="flex justify-end gap-5">
-              <Button onClick={() => signIn()}>로그인</Button>{" "}
+              <Button onClick={() => signIn()}>로그인</Button>
             </div>
           )}
         </li>
