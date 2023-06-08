@@ -2,7 +2,9 @@ import { User } from "@/hooks/useUser";
 import { io } from "socket.io-client";
 import { create } from "zustand";
 
-export const socket = io("http://localhost:8080");
+const NEXT_PUBLIC_URL = process.env.NEXT_PUBLIC_URL || "http://localhost:8080";
+
+export const socket = io(NEXT_PUBLIC_URL);
 
 interface Message {
   id: string;
