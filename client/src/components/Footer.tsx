@@ -6,6 +6,7 @@ const Footer = () => {
           className="text-lg"
           href="https://github.com/sjyoung428/web-final"
           target="_blank"
+          rel="noopener noreferrer"
         >
           Github
         </a>

@@ -3,6 +3,7 @@
 import Avatar from "../common/Avatar";
 import type { DefaultSession } from "next-auth";
 import { cls } from "@/utils/cls";
+import { convertContentToHTML } from "@/utils/convertContentToHTML";
 
 interface ChatItemProps {
   message: string;
@@ -26,9 +27,10 @@ const ChatItem = ({ message, user, me }: ChatItemProps) => {
           )}
         >
           <span className="mb-2 font-thin text-sm">{user?.name}</span>
-          <span className="bg-slate-200 rounded-md text-slate-900 p-4 max-w-[50%] whitespace-pre-wrap">
-            {message}
-          </span>
+          <span
+            className="bg-slate-200 rounded-md text-slate-900 p-4 max-w-[50%] whitespace-pre-wrap"
+            dangerouslySetInnerHTML={convertContentToHTML(message)}
+          />
         </div>
         <Avatar image={user?.image} size="sm" />
       </li>
