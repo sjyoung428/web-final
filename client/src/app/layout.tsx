@@ -3,6 +3,7 @@ import "./globals.css";
 import { Open_Sans } from "next/font/google";
 import Header from "@/components/Header";
 import { Toaster } from "react-hot-toast";
+import Footer from "@/components/Footer";
 
 const openSans = Open_Sans({ subsets: ["latin"] });
 
@@ -18,7 +19,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={openSans.className}>
-      <body className="w-full h-[100vh]">
+      <body className="w-full h-[100vh] relative">
         <AuthProvider>
           <Header />
           <main className="w-full h-[80%] mt-4 flex flex-col items-center">
@@ -26,6 +27,7 @@ export default function RootLayout({
           </main>
         </AuthProvider>
         <Toaster />
+        <Footer />
       </body>
     </html>
   );
