@@ -1,30 +1,16 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
 import Avatar from "../common/Avatar";
 import type { DefaultSession } from "next-auth";
-import { useSession } from "next-auth/react";
 import { cls } from "@/utils/cls";
 
 interface ChatItemProps {
-  children: React.ReactNode;
+  message: string;
   user: DefaultSession["user"];
+  me: boolean;
 }
 
-const ChatItem = ({ children, user }: ChatItemProps) => {
-  const [me, setMe] = useState(false);
-  const { data: session } = useSession();
-
-  useEffect(() => {
-    if (user && session && user.name === session.user?.name) {
-      setMe(true);
-    } else {
-      setMe(false);
-    }
-  }, [user, session]);
-
-  if (!user) return null;
-
+const ChatItem = ({ message, user, me }: ChatItemProps) => {
   return (
     <>
       <li
@@ -39,9 +25,9 @@ const ChatItem = ({ children, user }: ChatItemProps) => {
             }`
           )}
         >
-          <span className="mb-2 font-thin text-sm">{user.name}</span>
+          <span className="mb-2 font-thin text-sm">{user?.name}</span>
           <span className="bg-slate-200 rounded-md text-slate-900 p-4 max-w-[50%] whitespace-pre-wrap">
-            {children}
+            {message}
           </span>
         </div>
         <Avatar image={user?.image} size="sm" />

@@ -33,8 +33,4 @@ const useChatStore = create<ChatStore>((set) => ({
     })),
 }));
 
-socket.on("message", (message: string, user: User) => {
-  useChatStore.getState().addMessage(message, user);
-});
-
 export default useChatStore;
