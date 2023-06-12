@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <footer className="absolute left-[10%] text-[#808080] flex flex-col gap-3">
+    <footer className="absolute left-[10%] bottom-3 text-[#808080] flex flex-col gap-3">
       <nav>
         <a
           className="text-lg"
